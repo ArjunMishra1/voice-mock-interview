@@ -1,19 +1,22 @@
-# Voice Mock Interview Agent
+Voice Mock Interview Agent
 
 An AI-powered voice interview platform that conducts realistic mock interviews with real-time speech recognition, intelligent evaluation, and text-to-speech feedback.
 
-## 🎯 Features
+🎯 Features
 
-- **Voice-Based Interviews**: Conduct interviews using natural voice interaction
-- **Real-Time Transcription**: Automatic speech-to-text conversion using OpenAI Whisper
-- **AI-Powered Evaluation**: Get instant feedback on relevance, clarity, and correctness
-- **Text-to-Speech**: Questions are read aloud using Microsoft Edge TTS or ElevenLabs
-- **Role-Specific Questions**: Customize interviews for different job roles
-- **Interview Summary**: Comprehensive feedback with strengths and improvement areas
+Voice-Based Interviews: Conduct interviews using natural voice interaction
 
-## 🏗️ Architecture
+Real-Time Transcription: Automatic speech-to-text conversion using OpenAI Whisper
 
-```
+AI-Powered Evaluation: Get instant feedback on relevance, clarity, and correctness
+
+Text-to-Speech: Questions are read aloud using Microsoft Edge TTS
+
+Role-Specific Questions: Customize interviews for different job roles
+
+Interview Summary: Comprehensive feedback with strengths and improvement areas
+
+🏗️ Architecture
 Microsoft/
 ├── backend/          # FastAPI backend server
 │   ├── app/
@@ -28,153 +31,160 @@ Microsoft/
     └── src/
         ├── components/
         └── App.tsx   # Main application
-```
 
-## 🚀 Getting Started
+🚀 Getting Started
+Prerequisites
 
-### Prerequisites
+Python 3.8+ (for backend)
 
-- **Python 3.8+** (for backend)
-- **Node.js 16+** and **Yarn** (for frontend)
-- **PostgreSQL** (for database)
-- **FFmpeg** (for audio processing)
-- **OpenAI API Key** (for LLM and Whisper)
+Node.js 16+ and Yarn (for frontend)
 
-### Backend Setup
+PostgreSQL (for database)
 
-1. Navigate to the backend directory:
+FFmpeg (for audio processing)
 
-   ```bash
-   cd backend
-   ```
+OpenAI API Key (for LLM and Whisper)
 
-2. Create a virtual environment:
+🔧 Backend Setup
 
-   ```bash
-   python -m venv venv
-   venv\Scripts\activate  # Windows
-   # source venv/bin/activate  # macOS/Linux
-   ```
+Navigate to the backend directory:
 
-3. Install dependencies:
+cd backend
 
-   ```bash
-   pip install -r requirements.txt
-   ```
 
-4. Configure environment variables:
+Create a virtual environment:
 
-   ```bash
-   cp .env.example .env
-   ```
+python -m venv venv
+venv\Scripts\activate  # Windows
+# source venv/bin/activate  # macOS/Linux
 
-   Edit `.env` and add your credentials:
 
-   ```env
-   DATABASE_URL=postgresql+asyncpg://postgres:postgres@localhost:5432/interview_db
-   OPENAI_API_KEY=your_openai_api_key_here
-   TTS_PROVIDER=edge  # or 'elevenlabs'
-   ```
+Install dependencies:
 
-5. Start the backend server:
+pip install -r requirements.txt
 
-   ```bash
-   uvicorn app.main:app --reload
-   ```
 
-   The API will be available at `http://localhost:8000`
+Configure environment variables:
 
-### Frontend Setup
+cp .env.example .env
 
-1. Navigate to the frontend directory:
 
-   ```bash
-   cd frontend
-   ```
+Edit .env and add your credentials:
 
-2. Install dependencies:
+DATABASE_URL=postgresql+asyncpg://postgres:postgres@localhost:5432/interview_db
+OPENAI_API_KEY=your_openai_api_key_here
+TTS_PROVIDER=edge
 
-   ```bash
-   npm install
-   ```
 
-3. Configure environment variables:
+Start the backend server:
 
-   ```bash
-   # Create .env file
-   echo REACT_APP_BACKEND_URL=http://localhost:8000 > .env
-   ```
+uvicorn app.main:app --reload
 
-4. Start the development server:
 
-   ```bash
-   npm start
-   ```
+The API will be available at http://localhost:8000
 
-   The application will open at `http://localhost:3000`
+🎨 Frontend Setup
 
-## 📖 Usage
+Navigate to the frontend directory:
 
-1. **Start Interview**: Enter a job role (e.g., "Software Engineer") and click "Start Interview"
-2. **Answer Questions**: Click "Answer" to start recording your response
-3. **Get Feedback**: Receive instant evaluation with scores and detailed feedback
-4. **Continue**: Click "Next Question" to proceed or "End Interview" for a summary
-5. **Review Summary**: View overall performance, strengths, and areas for improvement
+cd frontend
 
-## 🛠️ Tech Stack
 
-### Backend
+Install dependencies:
 
-- **FastAPI** - Modern Python web framework
-- **SQLAlchemy** - ORM for database operations
-- **OpenAI** - GPT for question generation and evaluation
-- **Whisper** - Speech-to-text transcription
-- **Edge TTS / ElevenLabs** - Text-to-speech synthesis
-- **PostgreSQL** - Database
+npm install
 
-### Frontend
 
-- **React 19** - UI framework
-- **TypeScript** - Type safety
-- **Axios** - HTTP client
-- **Radix UI** - Accessible component primitives
-- **Tailwind CSS** - Styling
-- **React Hook Form** - Form management
+Configure environment variables:
 
-## 🔧 Configuration
+# Create .env file
+echo REACT_APP_BACKEND_URL=http://localhost:8000 > .env
 
-### TTS Provider Options
 
-The application supports two TTS providers:
+Start the development server:
 
-- **Edge TTS** (Default): Free Microsoft Edge TTS, no API key required
-- **ElevenLabs**: Premium quality, requires API key
+npm start
 
-To use ElevenLabs, update your `.env`:
 
-```env
-TTS_PROVIDER=elevenlabs
-ELEVENLABS_API_KEY=your_api_key
-ELEVENLABS_VOICE_ID=your_voice_id
-```
+The application will open at http://localhost:3000
 
-## 📝 API Endpoints
+📖 Usage
 
-- `POST /interview/start?role={role}` - Start a new interview
-- `POST /interview/{id}/answer` - Submit audio answer
-- `GET /interview/{id}/next` - Get next question
-- `GET /interview/{id}/summary` - Get interview summary
+Start Interview: Enter a job role (e.g., "Software Engineer") and click Start Interview
 
-## 🤝 Contributing
+Answer Questions: Click Answer to start recording your response
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Get Feedback: Receive instant evaluation with scores and detailed feedback
 
-## 📄 License
+Continue: Click Next Question to proceed or End Interview for a summary
+
+Review Summary: View overall performance, strengths, and areas for improvement
+
+🛠️ Tech Stack
+Backend
+
+FastAPI – Modern Python web framework
+
+SQLAlchemy – ORM for database operations
+
+OpenAI GPT – Question generation and answer evaluation
+
+Whisper – Speech-to-text transcription
+
+Microsoft Edge TTS – Text-to-speech synthesis
+
+PostgreSQL – Database
+
+Frontend
+
+React 19 – UI framework
+
+TypeScript – Type safety
+
+Axios – HTTP client
+
+Radix UI – Accessible component primitives
+
+Tailwind CSS – Styling
+
+React Hook Form – Form management
+
+🔧 Configuration
+Text-to-Speech Provider
+
+The application uses Microsoft Edge Text-to-Speech:
+
+Free and fast
+
+No API key required
+
+Works offline-compatible via Edge runtime
+
+Configured via .env:
+
+TTS_PROVIDER=edge
+
+📝 API Endpoints
+
+POST /interview/start?role={role} – Start a new interview
+
+POST /interview/{id}/answer – Submit audio answer
+
+GET /interview/{id}/next – Get next question
+
+GET /interview/{id}/summary – Get interview summary
+
+🤝 Contributing
+
+Contributions are welcome!
+Please feel free to submit a Pull Request.
+
+📄 License
 
 This project is licensed under the MIT License.
 
-## 🙏 Acknowledgments
+🙏 Acknowledgments
 
-- OpenAI for GPT and Whisper models
-- Microsoft for Edge TTS
-- ElevenLabs for premium TTS option
+OpenAI for Whisper and GPT models
+
+Microsoft for Edge Text-to-Speech
