@@ -16,4 +16,4 @@ async def edge_tts_voice(text: str) -> str:
 async def text_to_speech(text: str) -> str:
     if settings.TTS_PROVIDER == "edge":
         return await edge_tts_voice(text)
-    return await elevenlabs_tts(text)
+
